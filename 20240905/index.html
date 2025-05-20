@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Bejelentkezés</h1>
+    
+    </header>
+    <form class="input">
+        <h3>Login:</h3><input type="text" name="login" id="login">
+        <h3>Jelszó:</h3><input type="password" name="jelszo" id="jelszo">
+        <h3>Születési év:</h3><input type="number" name="ido" id="ido"><br>
+        <input class="button" type="button" value="Belépés" onclick="loginBe(this.form);">
+        <input class="button" type="button" value="Megmutat" onclick="Megmutat(this.form);">
+    </form>
+
+    <form class="output">
+        <h3 id="kiiras"></h3>
+    </form>
+    <script>
+        function loginBe(f){
+
+            f.jelszo.style.background = (f.jelszo.value != "alma" ? "red" : "green");
+
+            f.login.style.border.color = (f.login.length > 10 ? "yellow" : "black");
+
+            var eletkor = (2024 - f.ido.value > 18 ? "Már nagykorú vagy!" : "Még kiskorú vagy!")
+            
+            document.getElementById("kiiras").innerHTML = "<i>Felhasználónév:<i> " + f.login.value + "<br><i>Jelszó:<i> " + f.jelszo.value + "<br>" + eletkor;
+
+        }
+
+        function Megmutat(k){
+            k.jelszo.type = (k.jelszo.type == "text" ? "password" : "text")
+        }
+
+    </script>
+</body>
+</html>

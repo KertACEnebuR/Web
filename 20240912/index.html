@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div{
+            position: absolute;
+            border: 1px solid black;
+        }
+
+        .fej{
+            width: 250px;
+            height: 150px;
+            background-color: yellow;
+            margin-left: 700px;
+            margin-top: 50px;
+        }
+
+        .bszem {
+            width: 30px;
+            height: 20px;
+            margin-left: 50px;
+            margin-top: 40px;
+        }
+
+        .jszem{
+            width: 30px;
+            height: 20px;
+            margin-left: 170px;
+            margin-top: 40px;
+        }
+
+        .bkez {
+            height: 300px;
+            width: 75px;
+            background-color: yellow;
+            margin-left: 590px;
+            margin-top: 220px;
+        }
+
+        .jkez{
+            height: 300px;
+            width: 75px;
+            background-color: yellow;
+            margin-left: 985px;
+            margin-top: 220px;
+        }
+
+        .test{
+            height: 250px;
+            width: 300px;
+            background-color: green;
+            margin-left: 675px;
+            margin-top: 210px;
+        }
+
+        .blab{
+            height: 50px;
+            width: 50px;
+            background-color: grey;
+            margin-left: 730px;
+            margin-top: 470px;
+        }
+
+        .jlab{
+            height: 50px;
+            width: 50px;
+            background-color: grey;
+            margin-left: 870px;
+            margin-top: 470px;
+        }
+
+    </style>
+
+    <script>
+        const miniCss =
+        {
+            elemek: {"fej": null, "test": null, "bkez": null , "jkez": null , "blab": null , "jlab": null},
+            beolvas: function(){
+                let f = document.mintaEditor;
+                let e = document.getElementById("melyikElem").value;
+                document.title = e.toUpperCase() + " - beolvasva";
+                f.reset();
+                if(this.elemek[e]) for(let i = 0; i < this.elemek[e].length; i++){
+                    let p = this.elemek[e][i].indexOf(':');
+                    let n = this.elemek[e][i].slice(0,p);
+                    f[n].value = this.elemek[e][i].slice(p + 1);
+                    //console.log(i, n)
+                };
+            },
+            ment: function(){
+                let f = document.mintaEditor;
+                let e = document.getElementById("melyikElem").value;
+                document.title = e.toUpperCase()+" - mentve";
+                this.elemek[e] = [];
+                if(mintaElem) for (let i = 0; i < f.length; i++) if(f[i].checked) {this.elemek[e].push(f[i].name + ':' + f[i].value)
+                }
+            },
+            frissit: function(){
+                let is = document.getElementById("inlineCss");
+                is.innerHTML = "";
+                for(let [k,v] of Object.entries(this.elemek)) if(v){
+                    let s = v.toString();
+                    is.innerHTML += k + " {"+ (v != null ? s.replaceAll(",", ";"): '');
+                    is.innerHTML += "}\n";
+                }
+            }
+        }
+    </script>
+    <title>ROBOT</title>
+</head>
+<body>
+    <figure>
+        <div class="fej" name="fej">
+            <div class="bszem"></div>
+            <div class="jszem"></div>
+        </div>
+        <div class="bkez" name="bkez"></div>
+        <div class="jkez" name="jkez"></div>
+        <div class="test" name="test"></div>
+        <div class="jlab" name="jlab"></div>
+        <div class="blab" name="blab"></div>
+    </figure> 
+    
+    <select id="melyikElem" style="padding: 10px; border: 4px solid black; background-color: lightyellow;" onchange="miniCss.beolvas()">
+        <option value="fej">Fej</option>
+        <option value="test">Test</option>
+        <option value="bkez">Bal kéz</option>
+        <option value="jkez">Bal kéz</option>
+        <option value="blab">Bal láb</option>
+        <option value="jlab">Jobb láb</option>
+    </select>
+</body>
+</html>

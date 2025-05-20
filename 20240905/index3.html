@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bont(szoveg){
+            camel = szoveg;
+            let p = szoveg.indexOf('-');
+            if (p > 0) camel = szoveg.slice(0, p) + szoveg.charAt(p + 1).toUpperCase();
+            return camel + szoveg.slice(p + 2);
+        }
+
+        function bont2(szoveg){
+            let camel = szoveg;
+            do{
+                p = camel.indexOf('-')
+                if(p = 0) camel = camel.slice(0, p) + camel.charAt()     
+            }   
+                while(p > 0)
+                return camel
+        }
+
+        function bont3(szoveg){
+            let t = szoveg.split('-');
+            for (let i = 0; i < t.length; i++) {
+                camel = t[i][0].toUpperCase() + t[i].slice(1);
+            }
+            return camel;
+        }
+
+        
+
+        const miniCss = 
+        {
+            elemek: {"hr": null, "p": null, "mark": null},
+            beolvas: function(){x},
+            ment: function(){x},
+            frissit: function(){x},
+        }
+
+        document.write(bont(szoveg));
+        document.write(bont2(szoveg));
+        document.write(bont3(szoveg));
+    </script>
+</head>
+<body onload="melyikElem = document.getElementById('melyikElem')">
+    <select id="melyikElem" style="padding: 10px; border: 4px solid black; background-color: lightyellow;" onchange="miniCss.beolvas()">
+        <option value="h1">H1</option>
+        <option value="p">P</option>
+        <option value="mark">MARK</option>
+    </select>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>BOX-SIZING</title>
+</head>
+<body>
+    <div class="elso" style="background-color: red;">
+        <div>Első</div>
+    </div>
+    <div class="masodik"  style="background-color: blue;">
+        <div>Második</div>
+    </div>
+    <div class="masodik"  style="background-color: yellow;">
+        <div>Harmadik</div>
+    </div>
+    <div class="elso"  style="background-color: green;">
+        <div>Negyedik</div>
+    </div>
+
+    <hr>
+
+    <p style="color:orange; background-color: yellow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quia deserunt non impedit sit temporibus fugiat error ullam, suscipit tempora placeat nemo quisquam odit, culpa praesentium repellendus sint numquam ab.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora molestiae totam eum in hic quis deserunt neque voluptate facere modi.</p>
+</body>
+
+<style>
+    div {
+        width: 200px;
+        height: 50px;
+    }
+
+    .elso {
+        box-sizing: content-box;
+        border: 2px solid black;
+        padding: 5px;
+        margin: 10px;     
+    }
+
+    .masodik{
+        box-sizing: border-box;
+        border: 2px solid black;
+        padding: 5px;
+        margin: 10px; 
+    }
+
+    p{
+        color: red;
+        background-color: yellow;
+    }
+
+    p:hover{
+        background-color: blue;
+    }
+
+    div:hover {
+        cursor: pointer;
+    }
+</style>
+</html>

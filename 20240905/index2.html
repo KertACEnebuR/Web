@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="inlineCss">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <script>
+        var mintaElem = null;
+        var mintaTimer = null;
+        let mintaIrany = 2;
+        var mintaX = 0;
+        let szamlalo = 0;
+        var mintaDeg = null;
+
+        function mintaGeneral(t){
+            e = t.elements;
+            if (mintaElem) 
+            {
+                for (let i = 0; i < e.length; i++) 
+                {
+                    if (e[i].type != "radio" || e[i].checked) 
+                    {
+                        mintaElem.style[e[i].name] = e[i].value;
+                    }                
+                }
+            }
+            miniCss.ment();
+        }
+
+        function mintaMozog()
+        {
+            mintaElem.style.left = mintaX + 'px';
+            mintaElem.innerHTML = mintaX;
+
+            if (mintaElem) {
+                if (mintaX < 0 || parseInt(mintaX + mintaElem.offsetWidth) > mintaElem.parentNode.clientWidth) mintaIrany *= -1;
+                mintaX += mintaIrany;    
+            }
+            
+            mintaElem.style.transform = "rotate(" + mintaX + "deg)";
+        }
+
+        function bont(szoveg){
+            camel = szoveg;
+            let p = szoveg.indexOf('-');
+            if (p > 0) camel = szoveg.slice(0, p) + szoveg.charAt(p + 1).toUpperCase();
+            return camel + szoveg.slice(p + 2);
+        }
+
+        function bont2(szoveg){
+            let camel = szoveg;
+            do{
+                p = camel.indexOf('-')
+                if(p = 0) camel = camel.slice(0, p) + camel.charAt()     
+            }   
+                while(p > 0)
+                return camel
+        }
+
+        function bont3(szoveg){
+            let t = szoveg.split('-');
+            for (let i = 0; i < t.length; i++) {
+                camel = t[i][0].toUpperCase() + t[i].slice(1);
+            }
+            return camel;
+        }
+
+        const miniCss =
+        {
+            elemek: {"h1": null, "p": null, "mark": null},
+            beolvas: function(){
+                let f = document.mintaEditor;
+                let e = document.getElementById("melyikElem").value;
+                document.title = e.toUpperCase() + " - beolvasva";
+                f.reset();
+                if(this.elemek[e]) for(let i = 0; i < this.elemek[e].length; i++){
+                    let p = this.elemek[e][i].indexOf(':');
+                    let n = this.elemek[e][i].slice(0,p);
+                    f[n].value = this.elemek[e][i].slice(p + 1);
+                    //console.log(i, n)
+                };
+            },
+            ment: function(){
+                let f = document.mintaEditor;
+                let e = document.getElementById("melyikElem").value;
+                document.title = e.toUpperCase()+" - mentve";
+                this.elemek[e] = [];
+                if(mintaElem) for (let i = 0; i < f.length; i++) if(f[i].checked) {this.elemek[e].push(f[i].name + ':' + f[i].value)
+                }
+            },
+            frissit: function(){
+                let is = document.getElementById("inlineCss");
+                is.innerHTML = "";
+                for(let [k,v] of Object.entries(this.elemek)) if(v){
+                    let s = v.toString();
+                    is.innerHTML += k + " {"+ (v != null ? s.replaceAll(",", ";"): '');
+                    is.innerHTML += "}\n";
+                }
+            }
+        }
+
+        //document.write(bont(szoveg));
+        //document.write(bont2(szoveg));
+        //document.write(bont3(szoveg));
+    </script>
+
+    <title>Minta</title>
+    
+</head>
+<body onload="mintaElem = document.getElementById('minta')">
+    
+    <div style="position: relative;" class="elso">
+        <h1>Minta</h1>
+        <figure onclick="mintaTimer = setInterval(mintaMozog, 100)" style="position: absolute; margin: 0px;" id="minta" class="doboz">
+        </figure>    
+    </div>
+
+    <div class="masodik">
+        <select id="melyikElem" style="padding: 10px; border: 4px solid black; background-color: lightyellow;" onchange="miniCss.beolvas()">
+            <option value="h1">H1</option>
+            <option value="p">P</option>
+            <option value="mark">MARK</option>
+        </select>
+
+        <button type="button" onclick="miniCss.frissit()">CSS frissít</button>
+
+        <form onchange="mintaGeneral(this);" name="mintaEditor" id="mf" onchange="miniCss.frissit()">
+            <fieldset>
+                <legend>Háttér</legend>
+                <label><input type="radio" name="backgroundColor" value="red">Piros</label>
+                <label><input type="radio" name="background-color" value="blue">Kék</label>
+                <label><input type="radio" name="background-color" value="green">Zöld</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Keretszín</legend>
+                <label><input type="radio" name="borderColor" value="black">Fekete</label>
+                <label><input type="radio" name="borderColor" value="white">Fehér</label>
+                <label><input type="radio" name="borderColor" value="yellow">Sárga</label>  
+            </fieldset>
+
+            <fieldset>
+                <legend>Keretstílus</legend>
+                <label><input type="radio" name="borderStyle" value="dotted">Dotted</label>
+                <label><input type="radio" name="borderStyle" value="dashed">Dashed</label>
+                <label><input type="radio" name="borderStyle" value="solid">Solid</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Kerekítés</legend>
+                <label><input type="radio" name="borderRadius" value="0%">0%</label>
+                <label><input type="radio" name="borderRadius" value="100%">100%</label>
+                <label><input type="radio" name="borderRadius" value="25%">25%</label>
+            </fieldset>
+            
+            <!--<select name="backgroundColor" id="">
+                <option value="red">piros</option>
+                <option value="green">zöld</option>
+                <option value="yellow">sárga</option>
+            </select>
+
+            <select name="borderColor" id="">
+                <option value="red">piros</option>
+                <option value="green">zöld</option>
+                <option value="yellow">sárga</option>
+            </select>
+
+            <select name="borderStyle" id="">
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+                <option value="solid">Solid</option>
+            </select>
+            
+            <select name="borderRadius" id="">
+                <option value="0%">0%</option>
+                <option value="10%">10%</option>
+                <option value="25%">25%</option>
+            </select>-->
+        </form>
+    </div>
+
+    <div>
+        <h1 style="color: white;">1</h1>
+        <h1 style="color: white;">1</h1>
+        <h1>CSS Editor</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt, quaerat.</p>
+    </div>
+    
+</body>
+</html>

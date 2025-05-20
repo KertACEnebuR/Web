@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularStart">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/maincontroller.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Focicsapatok</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header><h1>Focicsapatok</h1></header>
+    <hr>
+        <div ng-controller="MainController">
+            
+            <h2>Klubnév:</h2>
+
+            <select ng-model="valasztottKlub" ng-options="klub.nev for klub in klubbok"
+                onchange="$('#kiiras').hide();$('#kategoria').val('');">
+            </select>
+            
+            <h2>Ilyen csapatok vannak a klubnál:</h2>
+
+            <select ng-model="valasztottCsapat" onchange="$('#kiiras').show();">
+                <option ng-repeat="csapat in valasztottKlub.csapatok">{{csapat}}</option>
+            </select>
+            
+            <div id="kiiras" style="display: none;">
+                <h1>A <i>{{valasztottKlub.nev}}</i>-nál/-nél van <i>{{valasztottCsapat}}</i> csapat.</h1>
+                <img src="{{valasztottKlub.logo}}"></img>
+                <h3>A klub országa:</h3>
+                <h2>{{valasztottKlub.orszag}}</h2>
+                <img src="{{valasztottKlub.flag}}"></img>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</body>
+
+</html>
