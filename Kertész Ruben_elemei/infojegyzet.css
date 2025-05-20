@@ -1,0 +1,461 @@
+body
+{
+	position		: relative			;
+/*	z-index			: -2				; */
+	background-image	: url(faerezet.jpg)		;
+}
+
+#reklam
+{
+/*	float			: right				;
+	position		: relative			; */
+
+	position		: absolute			;
+	right			: 0px				;
+
+/*	z-index			: -1				; */
+	border			: 0px dotted #B84		;
+	text-align		: center			;
+}
+
+#reklam div
+{
+	position		: relative			;
+/*	z-index			: -1				; */
+	margin			: 48px 16px			;
+	border			: 0px dotted red		;
+	text-align		: center			;
+}
+
+
+#toolbox
+{
+	position		: absolute			;
+	top			: 1380px			;
+	right			: 0px				;
+	width			: 158px				;
+	height			: 648px				;
+
+/*	z-index			: -1				; */
+
+	margin-right		: 16px				;
+	padding			: 0px				;
+	border			: solid 1px #CCC		;
+	border-radius		: 0px				;
+	background-color	: #EEE				;
+	text-align		: center			;
+}
+
+#toolbox #toolboxcim
+{
+	margin			: 0 0 12px 0			;
+	padding			: 2px				;
+	background-color	: #888				;
+	color			: #FFF				;
+	font-family		: Verdana			;
+	text-align		: center			;
+}
+
+#toolbox:hover
+{
+	border			: solid 1px #66F		;
+	background-color	: #CDF				;
+}
+
+#toolbox:hover #toolboxcim
+{
+	background-color	: #44A				;
+	color			: #FFF				;
+}
+
+#toolbox a
+{
+	display			: block				;
+	background-color	: #FFF				;
+	margin			: 16px auto			;
+	width			: 100px				;
+	height			: 100px				;
+	border			: solid 2px #888		;
+	border-radius		: 4px				;
+	filter			: grayscale(1)			;
+	line-height		: 100px				;
+}
+
+#toolbox a:hover
+{
+	border			: solid 2px #F44		;
+	filter			: grayscale(0)			;
+}
+
+#toolbox a img
+{
+	width			: 75px				;
+	border			: 0				;
+	vertical-align		: middle			;
+}
+
+
+#sporttarskereso
+{
+	position		: absolute			;
+	top			: 100px				;
+	left			: 960px				;
+	width			: 32px				;
+	height			: 32px				;
+
+/*	z-index			: 1				; */
+
+	padding			: 8px				;
+	border			: solid 1px #004		;
+	border-radius		: 32px				;
+	background-color	: #DDF				;
+	text-align		: center			;
+}
+
+
+
+
+
+#spiral
+{
+	position		: relative			;
+	z-index			: 0				;
+
+	box-shadow		: 12px 12px   6px #8A764D	;
+	box-shadow		: 12px 12px   6px #403008A0	;
+	border-radius		: 20px				;
+	margin			: 24px  0px 120px  12px		;
+	padding			: 48px 80px  24px 120px		;
+	background-color	: #FFF				;
+	background-image	: url(spiral.gif) , url(infojegyzet_hu_ceruza.png)		;
+	background-repeat	: repeat-y        , no-repeat					;
+	background-position	: top left        , bottom right				; 
+	width			: 680px				;
+	min-height              : 680px				;
+	font-family		: Geneva, Arial, Helvetica	;
+	font-size		: 12px				;
+	color			: #200040			;
+}
+
+
+
+#morzsa
+{
+	border-bottom		: solid 1px #200040		;
+	margin-bottom		: 32px				;
+}
+
+
+#spiral h1
+{
+	margin                  :  48px 0 0 0			;
+	font-size		: 32px				;
+	text-align              : center			;
+	text-shadow             : 1px 1px 2px #080000		;
+}
+
+#spiral h2
+{
+	margin                  : 4px 0 12px 0              ;
+	font-size		: 16px                      ;
+	text-align              : center                    ;
+}
+
+#spiral h2 span
+{
+	display                 : inline-block              ;
+	margin                  : 0 12px                    ;
+}
+
+#spiral h3
+{
+	margin                  : 32px 0 16px 0             ;
+	font-size		: 16px                      ;
+}
+
+
+li
+{
+	list-style-type         : none                      ;
+}
+
+
+li.normal
+{
+	list-style-type         : disc                      ;
+}
+
+
+li.szam
+{
+	list-style-type         : decimal                   ;
+}
+
+
+li.jegyzet
+{
+	font-weight             : bold                      ;
+}
+
+
+li.feladat , li.tesztek
+{
+	font-style              : italic                    ;
+}
+
+
+li:before , #spiral h2 span:before
+{
+	display                 : inline-block              ;
+	margin                  : 2px 6px 2px 0px           ;
+	width                   : 16px                      ;
+	border                  : solid 2px green           ;
+	border-radius           : 6px                       ;
+	text-align              : center                    ;
+	font-size               : 12px                      ;
+	font-weight             : bold                      ;
+	font-style              : normal                    ;
+}
+
+
+li.jegyzet:before , h2 span.jegyzet:before
+{
+	background-color        : #F60                      ;
+	content                 : "J"                       ;
+}
+
+li.mintapl:before , h2 span.mintapl:before
+{
+	background-color        : #FA0                      ;
+	content                 : "P"                       ;
+}
+
+li.kelleek:before , h2 span.kelleek:before
+{
+	background-color        : #FA0                      ;
+	content                 : "K"                       ;
+}
+
+li.feladat:before , h2 span.feladat:before
+{
+	background-color        : #FF0                      ;
+	content                 : "F"                       ;
+}
+
+li.tesztek:before , h2 span.tesztek:before
+{
+	background-color        : #FF0                      ;
+	content                 : "T"                       ;
+}
+
+
+a
+{
+	color               : #000099 ;
+	text-decoration     : none  ;
+}
+
+
+a:hover
+{
+	color               : #0088FF  ;
+}
+
+
+
+
+
+#tartalom
+{
+	margin          : 120px 0 0 120px           ;
+	margin          :  96px 32px 0 32px         ;
+	text-align	: justify                   ;
+	line-height	: 20px                      ;
+}
+
+
+
+#lablec
+{
+	border-top	: solid 1px #66A            ;
+
+	position	: relative                  ;
+	z-index		: 2                         ;
+/*	top		: -180px                    ;*/
+
+	margin		: 96px 80px 0px 0px        ;
+	width		: 680px                     ;
+	font-family     : Geneva, Arial, Helvetica  ;
+	font-size	: 11px                      ;
+	color		: #66A                      ;
+
+
+}
+
+
+span.csempe3as
+{
+	display       : inline-block     ;
+	margin-left   : 12px             ;
+	padding       : 16px 0px         ;
+	width         : 200px            ;
+	border        : solid 2px gray   ;
+	border-radius : 8px              ;
+	text-align    : center           ;
+}
+
+span.csempe3as:hover
+{
+	border        : solid 2px #08F   ;
+}
+
+
+span.csempe2es
+{
+	display       : inline-block     ;
+	margin-left   : 84px             ;
+	margin-bottom : 36px             ;
+	padding       : 16px 0px         ;
+	width         : 200px            ;
+	border        : solid 2px gray   ;
+	border-radius : 8px              ;
+	text-align    : center           ;
+}
+
+span.csempe2es:hover
+{
+	border        : solid 2px #08F   ;
+}
+
+
+input.forraskod_kep
+{
+	display       : block            ;
+	margin        : 0 0 12px 0       ;
+	height        : 108px            ;
+	outline       : none             ;
+}
+
+
+li.ikon
+{
+	line-height   : 40px             ;
+}
+
+li.ikon img
+{
+	height        : 32px             ;
+	margin-right  :  8px             ;
+}
+
+
+
+table.vizsgafeladat
+{
+	margin           :  36px -48px 12px 32px  ;
+}
+
+table.vizsgafeladat tr td
+{
+	border-radius    :  2px              ;
+	box-shadow       :  1px 1px 1px #66A ;
+	padding          :  4px 12px         ;
+	background-color :  #CCE             ;
+}
+
+table.vizsgafeladat tr td.kiemelt
+{
+	background-color :  #BBD             ;
+	font-weight      :  bold             ;
+}
+
+table.vizsgafeladat tr td.tovabba
+{
+	background-color :  #FFF             ;
+	text-align       :  center           ;
+}
+
+table.vizsgafeladat tr td.ures
+{
+	background-color :  #FFF             ;
+	box-shadow       :  0px 0px 0px #FFF ;
+}
+
+
+
+div.otlet
+{
+	margin            : 18px 0 36px 0    ;
+	padding           : 0 24px 0 0       ;
+	min-height        : 132px            ;
+	border            : solid 6px #8C8   ;
+	border-radius     : 12px             ;
+	background-color  : #CFC             ;
+	box-shadow        : 4px 4px 4px #464 ;
+}
+
+div.otlet img
+{
+	float             : left             ;
+}
+
+div.otlet h2
+{
+	padding-top       : 12px             ;
+}
+
+div.otlet p,  div.otlet ul li
+{
+	margin-left       : 144px            ;
+	line-height       : 20px             ;
+	text-align        : justify          ;
+}
+
+div.otlet ul li
+{
+	margin-left       : 128px            ;
+	margin-bottom     :  12px            ;
+}
+
+
+
+div.tartalomjegyzek
+{
+	margin-left      : -36px             ;
+	margin-right     : -12px             ;
+	border-radius    : 8px               ;
+	color            : #008              ;
+	font-family      : verdana           ;
+	font-size        : 11px              ;
+}
+
+div.tartalomjegyzek:hover
+{
+	background-color : #FCA              ;
+}
+
+div.tartalomjegyzek span.oldalcim
+{
+	display          : inline-block      ;
+	width            : 574px             ;
+}
+
+div.tartalomjegyzek span.oldalszam
+{
+	display          : inline-block      ;
+	width            : 30px              ;
+	padding-right    :  6px              ;
+	text-align       : right             ;
+}
+
+
+hr.elvalaszto
+{
+	margin-top       : 24px                                        ;
+	border           : 0                                           ;
+	height           : 1px                                         ;
+	background-image : linear-gradient(to right, #CCF, #004, #CCF) ;
+}
+
+
+
