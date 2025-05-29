@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body ng-app="classmateApp" ng-controller="classmateController">
+    <h1>{{title}}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Pozíció</th>
+                <th>Életkor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="classmate in classmates">
+                <td>{{classmate.name}}</td>
+                <td>{{classmate.job}}</td>
+                <td>{{classmate.age}}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+    <script>
+        let app = angular.module('classmateApp', []);
+        app.controller('classmateController', function($scope, $http){
+            $scope.title = "Osztály névsor";
+            console.log($scope.title);
+
+           $scope.classmates = [];
+           $http.get('classmates.json')
+            .then(function(response){
+                $scope.classmates = response.data;
+                console.log($scope.classmates);
+            })
+            .catch(function(error){
+                console.error("Hiba történt a json betöltésekor", error);
+            })
+        });
+
+    </script>
+</body>
+</html>
+
+
+<!--<input type="text" ng-model="search" placeholder="Osztálytárs keresése...">
+
+    <ul>
+        <li ng-repeat="classmate in classmates | filter:search">
+            <span><b>{{classmate.name}}</b> - {{classmate.job}} ({{classmate.age}} éves)</span>
+        </li>
+    </ul>
+
+    <h2>Új osztálytárs hozzáadása</h2>
+    <form ng-submit="addClassmate()">
+        <input type="text" ng-model="newClassmate.name" placeholder="Név:">
+        <input type="text" ng-model="newClassmate.job" placeholder="Pozíció:">
+        <input type="text" ng-model="newClassmate.age" placeholder="Kora:">
+        <button type="submit">Hozzáadás az osztályhoz</button>
+    </form>
+-->
+
+<!--/*$scope.newClassmate = {};
+$scope.addClassmate = function(){
+    $scope.classmates.push({
+        name:$scope.newClassmate.name,
+        job:$scope.newClassmate.job,
+        age:$scope.newClassmate.age
+    });
+    $scope.newClassmate = {};
+}*/-->
