@@ -1,0 +1,80 @@
+body {
+    background-image: linear-gradient(darkgrey, grey, black);
+    
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    background: rgba(255, 255, 255);
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    text-align: left;    
+}
+
+.kor {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+    margin-left: 0;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes example {
+    0%{
+        margin-left: 0px;
+        background-color: red;
+    }
+
+    25%{
+        background-color: yellow;
+    }
+
+    50%{
+        background-color: blue;
+    }
+
+    75%{
+        background-color: green;
+    }
+
+    100%{
+        background-color: black;
+        margin-left: ;
+    }
+
+}
+
+.teglalap {
+    width: 150px;
+    height: 100px;
+    background-color: black;
+}
+
+.korok {
+    width: 200px;
+    height: 150px;
+    background-color: black;
+    border-radius: 50%;
+    margin-top: 100px;
+}
+
+.jobb {
+    margin-right: -130px;
+}
+
+.bal {
+    margin-left: -130px;
+}  
+

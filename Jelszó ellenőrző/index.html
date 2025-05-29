@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Jelszó ellenőrzés</h1>
+
+    <h2>jelszó:</h2>
+    <input type="password" id="elsojelszo">
+
+    <h2>jelszó mégegyszer:</h2>
+    <input type="password" id="masodikjelszo">
+    <br>
+    <br>
+
+    <button type="submit" onclick="vizsgalo();">Ellenőrzés</button>
+    <br>
+    <br>
+
+    <input type="text" id="vegeredmeny" disabled>
+
+    <img id="kep">
+
+    <script>
+        function vizsgalo(){
+            let jelszo1 = elsojelszo.value;
+            let jelszo2 = masodikjelszo.value;
+
+            if (jelszo1 == jelszo2) {
+                document.getElementById("vegeredmeny").value = "A jelszavak megegyeznek";
+                document.getElementById("kep").src = "ok.png";
+                document.getElementById("vegeredmeny").style.color = "green";
+            }
+
+            else{
+                document.getElementById("vegeredmeny").value = "A jelszavak nem egyeznek meg";
+                document.getElementById("kep").src = "fault.png";
+                document.getElementById("vegeredmeny").style.color = "red";
+            }
+
+
+        }
+    </script>
+</body>
+</html>

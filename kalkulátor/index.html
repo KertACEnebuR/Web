@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <table>
+            <tr>
+                <th>Uticél</th>
+                <th>Ára:</th>
+                <th>Reptéri illeték:</th>
+                <th>Biztosítás: <br> 12.000 Ft</th>
+                <th>Fő:</th>
+                <th>Összesen:</th>
+            </tr>
+            <tr>
+                <td>Róma</td>
+                <td><input type="number" id="rom" value="220000" disabled> Ft</td>
+                <td><input type="number" id="romrep" value="12000" disabled> Ft</td>
+                <td><input type="checkbox" id="rombizt" onchange="szamitas();" checked></td>
+                <td><input type="number" id="romfo" value="0" onchange="szamitas();"></td>
+                <td><input type="number" id="romb" disabled></td>
+            </tr>
+            <tr>
+                <td>Jordánia</td>
+                <td><input type="number" id="jor" value="425000" disabled> Ft</td>
+                <td><input type="number" id="jorrep" value="16000" disabled> Ft</td>
+                <td><input type="checkbox" id="jorbizt" onchange="szamitas();" checked></td>
+                <td><input type="number" id="jorfo" value="0" onchange="szamitas();"></td>
+                <td><input type="number" id="jorb" disabled></td>
+            </tr>
+            <tr>
+                <td>Törökország</td>
+                <td><input type="number" id="tor" value="395000" disabled> Ft</td>
+                <td><input type="number" id="torrep" value="13000" disabled> Ft</td>
+                <td><input type="checkbox" id="torbizt" onchange="szamitas();" checked></td>
+                <td><input type="number" id="torfo" value="0" onchange="szamitas();"></td>
+                <td><input type="number" id="torb" disabled></td>
+            </tr>
+            <tr>
+                <td>Marokkó</td>
+                <td><input type="number" id="mar" value="376000" disabled> Ft</td>
+                <td><input type="number" id="marrep" value="17000" disabled> Ft</td>
+                <td><input type="checkbox" id="marbizt" onchange="szamitas();" checked></td>
+                <td><input type="number" id="marfo" value="0" onchange="szamitas();"></td>
+                <td><input type="number" id="marb" disabled></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="5" class="osszes">Mindösszesen: <input type="number" id="ossz" value="0" disabled> Ft</td>
+
+            </tr>
+
+        </table>
+    </div>
+
+
+    
+    <script src="java.js"></script>
+</body>
+</html>

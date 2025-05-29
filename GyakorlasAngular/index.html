@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="AngularApp" ng-controller="AngularController">
+    <h1>{{title}}</h1>
+
+    <ul>
+        <li ng-repeat="classmate in classmates">
+            <span>
+                {{classmate.name}}
+                {{classmate.job}}
+                {{classmate.age}}
+            </span>
+        </li>
+    </ul>
+
+    <script>
+        let app = angular.module('AngularApp', []);
+        app.controller('AngularController', function($scope, $http){
+            $scope.title = "Title";
+            console.log($scope.title)
+
+            $scope.classmates = [];
+            $http.get('gyakorlas.json')
+            .then(function(response){
+                $scope.classmates = response.data;
+            })
+            .catch(function(error){
+                console.error("Nem jó", error)
+            })
+        });
+    </script>    
+</body>
+</html>
