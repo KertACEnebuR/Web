@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="csokiApp" ng-controller="csokiController">
+
+    <h1>{{title}}</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Név</th>
+            <th>Ár</th>
+            <th>Raktáron</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="csoki in csokik">
+            <td>{{csoki.id}}</td>
+            <td>{{csoki.nev}}</td>
+            <td>{{csoki.ara}}</td>
+            <td>{{csoki.raktaron}}</td>
+        </tr>
+    </tbody>
+</table>
+
+    <script>
+        let app = angular.module('csokiApp', []);
+        app.controller('csokiController', function($scope, $http){
+            $scope.title = "Csokibolt";
+
+            $scope.csokik = [];
+            $http.get('http://localhost/csokishopBackendXampphoz/read.php')
+            .then(function(response){
+                $scope.csokik = response.data;
+                console.log($scope.csokik);
+            })
+            .catch(function(error){
+                console.error("Hiba történt a json betöltésekor", error);
+            })
+        });
+    </script>
+</body>
+</html>
